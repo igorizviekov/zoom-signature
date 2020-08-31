@@ -7,7 +7,8 @@ exports.getSignature = (req, res, next) => {
   const apiSecret = process.env.API_SECRET;
   if (!meetingId || !role) {
     return res.status(404).json({
-      message: "No meeting ID or role"
+      message: "No meeting ID or role",
+      data: req.body
     });
   }
 
