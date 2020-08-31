@@ -6,8 +6,7 @@ exports.getSignature = (req, res, next) => {
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
   if (!meetingId) {
-    console.log(req.body);
-    return res.status(404).json({
+    return res.status(204).json({
       message: "Please provide a meeting ID."
     });
   }
