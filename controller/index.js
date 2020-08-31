@@ -1,8 +1,8 @@
 const crypto = require("crypto");
 
 exports.getSignature = (req, res, next) => {
-  const meetingId = req.body.meetingId;
-  const role = req.body.role;
+  const meetingId = req.query.meetingId;
+  const role = 0;
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
   console.log(req.body);
