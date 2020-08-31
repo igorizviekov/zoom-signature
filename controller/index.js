@@ -5,7 +5,7 @@ exports.getSignature = (req, res, next) => {
   const role = req.body.role;
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
-  if (!meetingId || req.body.role !== 0 || req.body.role !== 1) {
+  if (!meetingId || (role !== 1 && role !== 0)) {
     return res.status(200).json({
       message: "Please provide a meeting ID and a role."
     });
