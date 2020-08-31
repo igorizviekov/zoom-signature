@@ -20,7 +20,7 @@ exports.getSignature = (req, res, next) => {
   res.status(200).json({
     signature: signature,
     message: "Success",
-    meetingId: req.body.meetingId,
-    role: req.body.role
+    meetingId: req.body.meetingId || "No meeting ID",
+    role: req.body.role || "No role"
   });
 };
