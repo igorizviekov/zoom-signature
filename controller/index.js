@@ -5,12 +5,6 @@ exports.getSignature = (req, res, next) => {
   const role = req.body.role;
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
-  if (!meetingId) {
-    return res.status(200).json({
-      message: "Please provide a meeting ID."
-    });
-  }
-
   const timestamp = new Date().getTime() - 30000;
   const msg = Buffer.from(apiKey + meetingId + timestamp + role).toString(
     "base64"
