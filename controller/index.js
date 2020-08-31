@@ -3,7 +3,6 @@ const crypto = require("crypto");
 exports.getSignature = (req, res, next) => {
   const meetingId = parseInt(req.query.meetingId);
   const role = parseInt(req.query.role);
-  console.log(meetingId, role);
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
   if (!meetingId || (role !== 1 && role !== 0)) {
