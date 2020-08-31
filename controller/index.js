@@ -21,6 +21,6 @@ exports.getSignature = (req, res, next) => {
     signature: signature,
     message: "Success",
     meetingId: req.body.meetingId || "No meeting ID",
-    role: req.body.role || "No role"
+    role: req.body.role === 0 || req.body.role === 1 ? req.body.role : "No role"
   });
 };
