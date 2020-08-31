@@ -19,6 +19,8 @@ exports.getSignature = (req, res, next) => {
 
   res.status(200).json({
     signature: signature,
-    message: "Success"
+    message: "Success",
+    meetingId: req.body.meetingId,
+    role: req.body.role
   });
 };
