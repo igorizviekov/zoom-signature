@@ -5,6 +5,11 @@ exports.getSignature = (req, res, next) => {
   const role = req.body.role;
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
+  if (!meetingId || !role) {
+    return res.status(404).json({
+      message: "No meeting ID or role"
+    });
+  }
 
   const timestamp = new Date().getTime() - 30000;
   const msg = Buffer.from(apiKey + meetingId + timestamp + role).toString(
