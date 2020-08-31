@@ -1,11 +1,11 @@
 const crypto = require("crypto");
 
 exports.getSignature = (req, res, next) => {
-  const meetingId = req.query.meetingId;
-  const role = 0;
+  const meetingId = parseInt(req.query.meetingId);
+  const role = parseInt(req.query.role);
+  console.log(meetingId, role);
   const apiKey = process.env.API_KEY;
   const apiSecret = process.env.API_SECRET;
-  console.log(req.body);
   if (!meetingId || (role !== 1 && role !== 0)) {
     return res.status(200).json({
       message: "Please provide a meeting ID and a role."
