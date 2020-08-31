@@ -8,7 +8,10 @@ exports.getSignature = (req, res, next) => {
   if (!meetingId || !role) {
     return res.status(404).json({
       message: "No meeting ID or role",
-      data: req.body
+      data: {
+        meetingId: meetingId,
+        role: role
+      }
     });
   }
 
